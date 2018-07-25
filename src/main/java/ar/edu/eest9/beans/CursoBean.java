@@ -1,7 +1,7 @@
 package ar.edu.eest9.beans;
 
 import ar.edu.eest9.domain.Cursos;
-import ar.edu.eest9.service.curso.CursoService;
+import ar.edu.eest9.service.curso.impl.CursoService;
 import ar.edu.eest9.utils.Message;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -13,7 +13,7 @@ import org.primefaces.event.RowEditEvent;
 @RequestScoped
 @Named
 public class CursoBean {
-    
+
     @Inject
     private CursoService cursoService;
     private Cursos curso;
@@ -27,30 +27,26 @@ public class CursoBean {
     public void setParam(String param) {
         this.param = param;
     }
-    
+
     public CursoBean() {
         this.curso = new Cursos();
     }
-    
+
     @PostConstruct
     public void init() {
         cursos = cursoService.findAll();
     }
-    
+
     public void editListener(RowEditEvent event) {
         this.curso = (Cursos) event.getObject();
         cursoService.edit(curso);
     }
-    
+
     public List<Cursos> getCursos() {
-         if (param.isEmpty()) {
-         return cursos;
-         }else{
-        return (List) cursoService.find(param);
-    }
+        return this.cursos;
     }
 
-    public void save() {
+public void save() {
         cursoService.create(curso);
         Message.showMessage("Alta de cursos","Se dio de alta al curso " + curso.getId() + " " + curso.getNombre());
         this.curso = new Cursos();

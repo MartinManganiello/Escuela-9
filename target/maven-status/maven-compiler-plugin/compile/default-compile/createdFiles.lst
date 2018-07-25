@@ -1,7 +1,7 @@
 ar\edu\eest9\repository\curso\CursoDaoImpl.class
-ar\edu\eest9\service\curso\CursoService.class
 ar\edu\eest9\utils\Message.class
-ar\edu\eest9\repository\curso\CursoDao.class
+ar\edu\eest9\service\curso\impl\CursoService.class
+ar\edu\eest9\repository\curso\impl\CursoDao.class
 ar\edu\eest9\repository\GenericR.class
 ar\edu\eest9\ConfigurationBean.class
 ar\edu\eest9\domain\Cursos.class

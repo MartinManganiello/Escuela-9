@@ -1,7 +1,8 @@
 package ar.edu.eest9.service.curso;
 
+import ar.edu.eest9.service.curso.impl.CursoService;
 import ar.edu.eest9.domain.Cursos;
-import ar.edu.eest9.repository.curso.CursoDao;
+import ar.edu.eest9.repository.curso.impl.CursoDao;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

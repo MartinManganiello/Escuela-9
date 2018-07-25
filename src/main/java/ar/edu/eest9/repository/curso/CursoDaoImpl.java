@@ -1,5 +1,6 @@
 package ar.edu.eest9.repository.curso;
 
+import ar.edu.eest9.repository.curso.impl.CursoDao;
 import ar.edu.eest9.domain.Cursos;
 import ar.edu.eest9.repository.GenericR;
 import javax.ejb.Stateless;
