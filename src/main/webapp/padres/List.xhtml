@@ -16,8 +16,8 @@
         <ui:define name="body">
             <h:form id="PadresListForm">
                 <p:panel header="#{bundle.ListPadresTitle}">
-                    <p:dataTable id="datalist" value="#{padresController.items}" var="item"
-                                 selectionMode="single" selection="#{padresController.selected}"
+                    <p:dataTable id="datalist" value="#{padreBean.items}" var="item"
+                                 selectionMode="single" selection="#{padreBean.selected}"
                                  paginator="true"
                                  rowKey="#{item.id}"
                                  rows="10"
@@ -76,10 +76,10 @@
                             <h:outputText value="#{item.localidad}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{padresController.prepareCreate}" update=":PadresCreateForm" oncomplete="PF('PadresCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":PadresViewForm" oncomplete="PF('PadresViewDialog').show()" disabled="#{empty padresController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":PadresEditForm" oncomplete="PF('PadresEditDialog').show()" disabled="#{empty padresController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{padresController.destroy}" update=":growl,datalist" disabled="#{empty padresController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{padreBean.prepareCreate}" update=":PadresCreateForm" oncomplete="PF('PadresCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":PadresViewForm" oncomplete="PF('PadresViewDialog').show()" disabled="#{empty padreBean.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":PadresEditForm" oncomplete="PF('PadresEditDialog').show()" disabled="#{empty padreBean.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{padreBean.destroy}" update=":growl,datalist" disabled="#{empty padreBean.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

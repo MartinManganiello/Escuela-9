@@ -1,7 +1,7 @@
 package ar.edu.eest9.beans;
 
-import ar.edu.eest9.domain.Autorizados;
-import ar.edu.eest9.service.autorizado.AutorizadoService;
+import ar.edu.eest9.domain.Padres;
+import ar.edu.eest9.service.padre.PadreService;
 import ar.edu.eest9.utils.JsfUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -19,31 +19,31 @@ import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class AutorizadoBean implements Serializable {
+public class PadreBean implements Serializable {
 
     @Inject
-    private AutorizadoService autorizadoService;
-    private Autorizados selected;
-    private List<Autorizados> items = null;
+    private PadreService padreService;
+    private Padres selected;
+    private List<Padres> items = null;
 
-    public AutorizadoBean() {
+    public PadreBean() {
     }
 
-    public Autorizados prepareCreate() {
-        selected = new Autorizados();
+    public Padres prepareCreate() {
+        selected = new Padres();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        persist(JsfUtil.PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("AutorizadosCreated"));
+        persist(JsfUtil.PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("PadresCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Si todo fue bien, se nullea la lista.
         }
     }
 
     public void destroy() {
-        persist(JsfUtil.PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("AutorizadosDeleted"));
+        persist(JsfUtil.PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("PadresDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Borra la selección
             items = null;    // Nullea la lista.
@@ -51,7 +51,7 @@ public class AutorizadoBean implements Serializable {
     }
 
     public void update() {
-        persist(JsfUtil.PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("AutorizadosUpdated"));
+        persist(JsfUtil.PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("PadresUpdated"));
     }
 
     private void persist(JsfUtil.PersistAction persistAction, String successMessage) {
@@ -59,9 +59,9 @@ public class AutorizadoBean implements Serializable {
             setEmbeddableKeys();
             try {
                 if (persistAction != JsfUtil.PersistAction.DELETE) {
-                    this.getAutorizadoService().edit(selected);
+                    this.getPadreService().edit(selected);
                 } else {
-                    this.getAutorizadoService().remove(selected);
+                    this.getPadreService().remove(selected);
                 }
                 JsfUtil.addSuccessMessage(successMessage);
             } catch (EJBException ex) {
@@ -88,46 +88,46 @@ public class AutorizadoBean implements Serializable {
     protected void setEmbeddableKeys() {
     }
 
-    public AutorizadoService getAutorizadoService() {
-        return autorizadoService;
+    public PadreService getPadreService() {
+        return padreService;
     }
 
-    public void setAutorizadoService(AutorizadoService autorizadoService) {
-        this.autorizadoService = autorizadoService;
+    public void setPadreService(PadreService padreService) {
+        this.padreService = padreService;
     }
 
-    public Autorizados getSelected() {
+    public Padres getSelected() {
         return selected;
     }
 
-    public void setSelected(Autorizados selected) {
+    public void setSelected(Padres selected) {
         this.selected = selected;
     }
 
-    public List<Autorizados> getItems() {
+    public List<Padres> getItems() {
         if (items == null) { //Si la lista esta vacía la carga.
-            items = this.getAutorizadoService().findAll();
+            items = this.getPadreService().findAll();
         }
         return items;
     }
 
-    public void setItems(List<Autorizados> items) {
+    public void setItems(List<Padres> items) {
         this.items = items;
     }
     
-     public List<Autorizados> getItemsAvailableSelectMany() {
-        return this.getAutorizadoService().findAll();
+     public List<Padres> getItemsAvailableSelectMany() {
+        return this.getPadreService().findAll();
     }
 
-    public List<Autorizados> getItemsAvailableSelectOne() {
-        return this.getAutorizadoService().findAll();
+    public List<Padres> getItemsAvailableSelectOne() {
+        return this.getPadreService().findAll();
     }
     
-    public Autorizados getAutorizados(java.lang.Integer id) {
-        return this.getAutorizadoService().find(id);
+    public Padres getPadres(java.lang.Integer id) {
+        return this.getPadreService().find(id);
     }
     
-    @FacesConverter(forClass = Autorizados.class)
+    @FacesConverter(forClass = Padres.class)
     public static class CursoBeanConverter implements Converter {
 
         @Override
@@ -135,9 +135,9 @@ public class AutorizadoBean implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            AutorizadoBean controller = (AutorizadoBean) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "autorizadoBean");
-            return controller.getAutorizados(getKey(value));
+            PadreBean controller = (PadreBean) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "padreBean");
+            return controller.getPadres(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -157,11 +157,11 @@ public class AutorizadoBean implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Autorizados) {
-                Autorizados o = (Autorizados) object;
+            if (object instanceof Padres) {
+                Padres o = (Padres) object;
                 return getStringKey(o.getId());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Autorizados.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Padres.class.getName()});
                 return null;
             }
         }

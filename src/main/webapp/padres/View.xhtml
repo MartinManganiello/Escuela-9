@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
@@ -11,23 +10,23 @@
         <p:dialog id="PadresViewDlg" widgetVar="PadresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPadresTitle}">
             <h:form id="PadresViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{padresController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{padreBean.selected != null}">
                         <h:outputText value="#{bundle.ViewPadresLabel_id}"/>
-                        <h:outputText value="#{padresController.selected.id}" title="#{bundle.ViewPadresTitle_id}"/>
+                        <h:outputText value="#{padreBean.selected.id}" title="#{bundle.ViewPadresTitle_id}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_apellido}"/>
-                        <h:outputText value="#{padresController.selected.apellido}" title="#{bundle.ViewPadresTitle_apellido}"/>
+                        <h:outputText value="#{padreBean.selected.apellido}" title="#{bundle.ViewPadresTitle_apellido}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_nombre}"/>
-                        <h:outputText value="#{padresController.selected.nombre}" title="#{bundle.ViewPadresTitle_nombre}"/>
+                        <h:outputText value="#{padreBean.selected.nombre}" title="#{bundle.ViewPadresTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_dni}"/>
-                        <h:outputText value="#{padresController.selected.dni}" title="#{bundle.ViewPadresTitle_dni}"/>
+                        <h:outputText value="#{padreBean.selected.dni}" title="#{bundle.ViewPadresTitle_dni}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_nacionalidad}"/>
-                        <h:outputText value="#{padresController.selected.nacionalidad}" title="#{bundle.ViewPadresTitle_nacionalidad}"/>
+                        <h:outputText value="#{padreBean.selected.nacionalidad}" title="#{bundle.ViewPadresTitle_nacionalidad}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_ocupacion}"/>
-                        <h:outputText value="#{padresController.selected.ocupacion}" title="#{bundle.ViewPadresTitle_ocupacion}"/>
+                        <h:outputText value="#{padreBean.selected.ocupacion}" title="#{bundle.ViewPadresTitle_ocupacion}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_domicilio}"/>
-                        <h:outputText value="#{padresController.selected.domicilio}" title="#{bundle.ViewPadresTitle_domicilio}"/>
+                        <h:outputText value="#{padreBean.selected.domicilio}" title="#{bundle.ViewPadresTitle_domicilio}"/>
                         <h:outputText value="#{bundle.ViewPadresLabel_localidad}"/>
-                        <h:outputText value="#{padresController.selected.localidad}" title="#{bundle.ViewPadresTitle_localidad}"/>
+                        <h:outputText value="#{padreBean.selected.localidad}" title="#{bundle.ViewPadresTitle_localidad}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PadresViewDialog.hide()"/>
                 </h:panelGroup>
