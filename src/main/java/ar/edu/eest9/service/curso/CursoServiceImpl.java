@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 @Stateless
 public class CursoServiceImpl implements CursoService {
-
+/* EJB que implementa la interface local CursoService, se encarga de relacionarse con el DAO para interactuar con la BD */
     @Inject
     private CursoDao cursoDao;
 

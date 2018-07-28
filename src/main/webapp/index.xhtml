@@ -2,23 +2,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Sistema de colegio</title>
-    </h:head>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <ui:composition template="/template.xhtml">
+         <ui:define name="title">
+            <h:outputText value="Inicio"></h:outputText>
+        </ui:define>
+        
+        <ui:define name="body">
     <h:body>
-        <p:panel header="Sistema de Colegio">   
+        <p:layout fullPage="true">
+        <p:panel header="Sistema de Escuela">   
             <h:form>
                 <p:menu toggleable="true">
-                    <p:submenu label="Cursos">
-                        <p:menuitem value="Altas"           action="cursosAltas.xhtml" />
-                        <p:menuitem value="Bajas"           action="cursosBajas.xhtml" />
-                        <p:menuitem value="Modificaciones"  action="cursosModificaciones.xhtml" />
-                        <p:menuitem value="Listados"        action="cursosListados.xhtml" /> 
+                    <p:submenu label="Administración">
+                        <p:menuitem value="Alumnos"    action="/alumnos/List.xhtml" />
+                        <p:menuitem value="Cursos"           action="/cursos/List.xhtml" />
+                        <p:menuitem value="Documentaciones"  action="/documentaciones/List.xhtml" />
+                        <p:menuitem value="Padres"        action="/padres/List.xhtml" />
+                        <p:menuitem value="Autorizados"        action="/autorizados/List.xhtml" />
+                    </p:submenu>
+                    <p:submenu label="Personal">
+                        <p:menuitem value="Docentes"           action="/docentes/List.xhtml" />
                     </p:submenu>
                 </p:menu>
             </h:form>
         </p:panel>
+            </p:layout>
     </h:body>
+            </ui:define>
+        </ui:composition>
 </html>
 

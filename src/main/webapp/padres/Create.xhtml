@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PadresCreateDlg" widgetVar="PadresCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePadresTitle}">
+            <h:form id="PadresCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{padresController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{padresController.selected.id}" title="#{bundle.CreatePadresTitle_id}" required="true" requiredMessage="#{bundle.CreatePadresRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{padresController.selected.apellido}" title="#{bundle.CreatePadresTitle_apellido}" required="true" requiredMessage="#{bundle.CreatePadresRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{padresController.selected.nombre}" title="#{bundle.CreatePadresTitle_nombre}" required="true" requiredMessage="#{bundle.CreatePadresRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_dni}" for="dni" />
+                        <p:inputText id="dni" value="#{padresController.selected.dni}" title="#{bundle.CreatePadresTitle_dni}" required="true" requiredMessage="#{bundle.CreatePadresRequiredMessage_dni}"/>
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_nacionalidad}" for="nacionalidad" />
+                        <p:inputText id="nacionalidad" value="#{padresController.selected.nacionalidad}" title="#{bundle.CreatePadresTitle_nacionalidad}" required="true" requiredMessage="#{bundle.CreatePadresRequiredMessage_nacionalidad}"/>
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_ocupacion}" for="ocupacion" />
+                        <p:inputText id="ocupacion" value="#{padresController.selected.ocupacion}" title="#{bundle.CreatePadresTitle_ocupacion}" />
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_domicilio}" for="domicilio" />
+                        <p:inputText id="domicilio" value="#{padresController.selected.domicilio}" title="#{bundle.CreatePadresTitle_domicilio}" />
+                        <p:outputLabel value="#{bundle.CreatePadresLabel_localidad}" for="localidad" />
+                        <p:inputText id="localidad" value="#{padresController.selected.localidad}" title="#{bundle.CreatePadresTitle_localidad}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{padresController.create}" value="#{bundle.Save}" update="display,:PadresListForm:datalist,:growl" oncomplete="handleSubmit(args,'PadresCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PadresCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

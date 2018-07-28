@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CursosEditDlg" widgetVar="CursosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCursosTitle}">
+            <h:form id="CursosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cursosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCursosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{cursosController.selected.id}" title="#{bundle.EditCursosTitle_id}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditCursosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{cursosController.selected.nombre}" title="#{bundle.EditCursosTitle_nombre}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditCursosLabel_turno}" for="turno" />
+                        <p:inputText id="turno" value="#{cursosController.selected.turno}" title="#{bundle.EditCursosTitle_turno}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_turno}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cursosController.update}" value="#{bundle.Save}" update="display,:CursosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CursosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CursosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

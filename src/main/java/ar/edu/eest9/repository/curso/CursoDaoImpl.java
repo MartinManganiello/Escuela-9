@@ -10,6 +10,9 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class CursoDaoImpl extends GenericR<Cursos> implements CursoDao {
 
+    /*Esta clase se encarga de comunicarse con la BD, para ello utiliza la interface propia de la entidad. 
+Las consultas generales estan en el GenericR (create, update,delete, findAll) son comunes a todas las entidades   
+     */
     @PersistenceContext(unitName = "JPAPU")
     private EntityManager em;
 

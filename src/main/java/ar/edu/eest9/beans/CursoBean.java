@@ -14,6 +14,7 @@ import org.primefaces.event.RowEditEvent;
 @Named
 public class CursoBean {
 
+    /*Este ManagedBean es el encargado de comunicarse con los EJB para interactuar con la BD*/
     @Inject
     private CursoService cursoService;
     private Cursos curso;
@@ -46,26 +47,26 @@ public class CursoBean {
         return this.cursos;
     }
 
-public void save() {
+    public void save() {
         cursoService.create(curso);
-        Message.showMessage("Alta de cursos","Se dio de alta al curso " + curso.getId() + " " + curso.getNombre());
+        Message.showMessage("Alta de cursos", "Se dio de alta al curso " + curso.getId() + " " + curso.getNombre());
         this.curso = new Cursos();
     }
-    
-    public void cargar(){
-    curso = cursoService.find(param);
+
+    public void cargar() {
+        curso = cursoService.find(param);
     }
-    
+
     public void setCursos(List<Cursos> cursos) {
         this.cursos = cursos;
     }
-    
+
     public Cursos getCurso() {
         return curso;
     }
-    
+
     public void setCurso(Cursos curso) {
         this.curso = curso;
     }
-    
+
 }

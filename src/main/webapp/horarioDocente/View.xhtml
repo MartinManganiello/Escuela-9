@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HorarioDocenteViewDlg" widgetVar="HorarioDocenteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewHorarioDocenteTitle}">
+            <h:form id="HorarioDocenteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{horarioDocenteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_idHorario}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.idHorario}" title="#{bundle.ViewHorarioDocenteTitle_idHorario}"/>
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_dia}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.dia}" title="#{bundle.ViewHorarioDocenteTitle_dia}"/>
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_horaInicio}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.horaInicio}" title="#{bundle.ViewHorarioDocenteTitle_horaInicio}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_horaFin}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.horaFin}" title="#{bundle.ViewHorarioDocenteTitle_horaFin}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_cursosId}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.cursosId}" title="#{bundle.ViewHorarioDocenteTitle_cursosId}"/>
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_docentesId}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.docentesId}" title="#{bundle.ViewHorarioDocenteTitle_docentesId}"/>
+                        <h:outputText value="#{bundle.ViewHorarioDocenteLabel_materiasIdmaterias}"/>
+                        <h:outputText value="#{horarioDocenteController.selected.materiasIdmaterias}" title="#{bundle.ViewHorarioDocenteTitle_materiasIdmaterias}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="HorarioDocenteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

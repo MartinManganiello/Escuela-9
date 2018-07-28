@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DocentesEditDlg" widgetVar="DocentesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDocentesTitle}">
+            <h:form id="DocentesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{docentesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDocentesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{docentesController.selected.id}" title="#{bundle.EditDocentesTitle_id}" required="true" requiredMessage="#{bundle.EditDocentesRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditDocentesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{docentesController.selected.nombre}" title="#{bundle.EditDocentesTitle_nombre}" required="true" requiredMessage="#{bundle.EditDocentesRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditDocentesLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{docentesController.selected.apellido}" title="#{bundle.EditDocentesTitle_apellido}" required="true" requiredMessage="#{bundle.EditDocentesRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.EditDocentesLabel_dni}" for="dni" />
+                        <p:inputText id="dni" value="#{docentesController.selected.dni}" title="#{bundle.EditDocentesTitle_dni}" required="true" requiredMessage="#{bundle.EditDocentesRequiredMessage_dni}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{docentesController.update}" value="#{bundle.Save}" update="display,:DocentesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DocentesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DocentesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

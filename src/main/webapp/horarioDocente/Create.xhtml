@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HorarioDocenteCreateDlg" widgetVar="HorarioDocenteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateHorarioDocenteTitle}">
+            <h:form id="HorarioDocenteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{horarioDocenteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_idHorario}" for="idHorario" />
+                        <p:inputText id="idHorario" value="#{horarioDocenteController.selected.idHorario}" title="#{bundle.CreateHorarioDocenteTitle_idHorario}" required="true" requiredMessage="#{bundle.CreateHorarioDocenteRequiredMessage_idHorario}"/>
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_dia}" for="dia" />
+                        <p:inputText id="dia" value="#{horarioDocenteController.selected.dia}" title="#{bundle.CreateHorarioDocenteTitle_dia}" required="true" requiredMessage="#{bundle.CreateHorarioDocenteRequiredMessage_dia}"/>
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_horaInicio}" for="horaInicio" />
+                        <p:calendar id="horaInicio" pattern="HH:mm:ss" value="#{horarioDocenteController.selected.horaInicio}" title="#{bundle.EditHorarioDocenteTitle_horaInicio}" required="true" requiredMessage="#{bundle.EditHorarioDocenteRequiredMessage_horaInicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_horaFin}" for="horaFin" />
+                        <p:calendar id="horaFin" pattern="HH:mm:ss" value="#{horarioDocenteController.selected.horaFin}" title="#{bundle.EditHorarioDocenteTitle_horaFin}" required="true" requiredMessage="#{bundle.EditHorarioDocenteRequiredMessage_horaFin}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_cursosId}" for="cursosId" />
+                        <p:selectOneMenu id="cursosId" value="#{horarioDocenteController.selected.cursosId}" required="true" requiredMessage="#{bundle.EditHorarioDocenteRequiredMessage_cursosId}">
+                            <f:selectItems value="#{cursosController.itemsAvailableSelectOne}"
+                                           var="cursosIdItem"
+                                           itemValue="#{cursosIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_docentesId}" for="docentesId" />
+                        <p:selectOneMenu id="docentesId" value="#{horarioDocenteController.selected.docentesId}" required="true" requiredMessage="#{bundle.EditHorarioDocenteRequiredMessage_docentesId}">
+                            <f:selectItems value="#{docentesController.itemsAvailableSelectOne}"
+                                           var="docentesIdItem"
+                                           itemValue="#{docentesIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateHorarioDocenteLabel_materiasIdmaterias}" for="materiasIdmaterias" />
+                        <p:selectOneMenu id="materiasIdmaterias" value="#{horarioDocenteController.selected.materiasIdmaterias}" required="true" requiredMessage="#{bundle.EditHorarioDocenteRequiredMessage_materiasIdmaterias}">
+                            <f:selectItems value="#{materiasController.itemsAvailableSelectOne}"
+                                           var="materiasIdmateriasItem"
+                                           itemValue="#{materiasIdmateriasItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{horarioDocenteController.create}" value="#{bundle.Save}" update="display,:HorarioDocenteListForm:datalist,:growl" oncomplete="handleSubmit(args,'HorarioDocenteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HorarioDocenteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
