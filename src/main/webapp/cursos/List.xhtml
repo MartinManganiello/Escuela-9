@@ -16,8 +16,8 @@
         <ui:define name="body">
             <h:form id="CursosListForm">
                 <p:panel header="#{bundle.ListCursosTitle}">
-                    <p:dataTable id="datalist" value="#{cursosController.items}" var="item"
-                                 selectionMode="single" selection="#{cursosController.selected}"
+                    <p:dataTable id="datalist" value="#{cursoBean.items}" var="item"
+                                 selectionMode="single" selection="#{cursoBean.selected}"
                                  paginator="true"
                                  rowKey="#{item.id}"
                                  rows="10"
@@ -46,10 +46,10 @@
                             <h:outputText value="#{item.turno}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{cursosController.prepareCreate}" update=":CursosCreateForm" oncomplete="PF('CursosCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CursosViewForm" oncomplete="PF('CursosViewDialog').show()" disabled="#{empty cursosController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CursosEditForm" oncomplete="PF('CursosEditDialog').show()" disabled="#{empty cursosController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{cursosController.destroy}" update=":growl,datalist" disabled="#{empty cursosController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{cursoBean.prepareCreate}" update=":CursosCreateForm" oncomplete="PF('CursosCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CursosViewForm" oncomplete="PF('CursosViewDialog').show()" disabled="#{empty cursoBean.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CursosEditForm" oncomplete="PF('CursosEditDialog').show()" disabled="#{empty cursoBean.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{cursoBean.destroy}" update=":growl,datalist" disabled="#{empty cursoBean.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

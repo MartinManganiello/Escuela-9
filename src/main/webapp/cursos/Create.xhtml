@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
@@ -11,15 +10,13 @@
         <p:dialog id="CursosCreateDlg" widgetVar="CursosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCursosTitle}">
             <h:form id="CursosCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{cursosController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCursosLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{cursosController.selected.id}" title="#{bundle.CreateCursosTitle_id}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_id}"/>
+                    <p:panelGrid columns="2" rendered="#{cursoBean.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCursosLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{cursosController.selected.nombre}" title="#{bundle.CreateCursosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_nombre}"/>
+                        <p:inputText id="nombre" value="#{cursoBean.selected.nombre}" title="#{bundle.CreateCursosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateCursosLabel_turno}" for="turno" />
-                        <p:inputText id="turno" value="#{cursosController.selected.turno}" title="#{bundle.CreateCursosTitle_turno}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_turno}"/>
+                        <p:inputText id="turno" value="#{cursoBean.selected.turno}" title="#{bundle.CreateCursosTitle_turno}" required="true" requiredMessage="#{bundle.CreateCursosRequiredMessage_turno}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{cursosController.create}" value="#{bundle.Save}" update="display,:CursosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CursosCreateDialog');"/>
+                    <p:commandButton actionListener="#{cursoBean.create}" value="#{bundle.Save}" update="display,:CursosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CursosCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CursosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
