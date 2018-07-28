@@ -16,8 +16,8 @@
         <ui:define name="body">
             <h:form id="AlumnosListForm">
                 <p:panel header="#{bundle.ListAlumnosTitle}">
-                    <p:dataTable id="datalist" value="#{alumnosController.items}" var="item"
-                                 selectionMode="single" selection="#{alumnosController.selected}"
+                    <p:dataTable id="datalist" value="#{alumnoBean.items}" var="item"
+                                 selectionMode="single" selection="#{alumnoBean.selected}"
                                  paginator="true"
                                  rowKey="#{item.id}"
                                  rows="10"
@@ -105,13 +105,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAlumnosTitle_cursosId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.cursosId}"/>
+                            <h:outputText value="#{item.cursosId.nombre}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{alumnosController.prepareCreate}" update=":AlumnosCreateForm" oncomplete="PF('AlumnosCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AlumnosViewForm" oncomplete="PF('AlumnosViewDialog').show()" disabled="#{empty alumnosController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AlumnosEditForm" oncomplete="PF('AlumnosEditDialog').show()" disabled="#{empty alumnosController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{alumnosController.destroy}" update=":growl,datalist" disabled="#{empty alumnosController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{alumnoBean.prepareCreate}" update=":AlumnosCreateForm" oncomplete="PF('AlumnosCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AlumnosViewForm" oncomplete="PF('AlumnosViewDialog').show()" disabled="#{empty alumnoBean.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AlumnosEditForm" oncomplete="PF('AlumnosEditDialog').show()" disabled="#{empty alumnoBean.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{alumnoBean.destroy}" update=":growl,datalist" disabled="#{empty alumnoBean.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

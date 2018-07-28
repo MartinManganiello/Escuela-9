@@ -11,39 +11,37 @@
         <p:dialog id="AlumnosCreateDlg" widgetVar="AlumnosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAlumnosTitle}">
             <h:form id="AlumnosCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{alumnosController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateAlumnosLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{alumnosController.selected.id}" title="#{bundle.CreateAlumnosTitle_id}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_id}"/>
+                    <p:panelGrid columns="2" rendered="#{alumnoBean.selected != null}">
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{alumnosController.selected.nombre}" title="#{bundle.CreateAlumnosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_nombre}"/>
+                        <p:inputText id="nombre" value="#{alumnoBean.selected.nombre}" title="#{bundle.CreateAlumnosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_apellido}" for="apellido" />
-                        <p:inputText id="apellido" value="#{alumnosController.selected.apellido}" title="#{bundle.CreateAlumnosTitle_apellido}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_apellido}"/>
+                        <p:inputText id="apellido" value="#{alumnoBean.selected.apellido}" title="#{bundle.CreateAlumnosTitle_apellido}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_apellido}"/>
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_legajo}" for="legajo" />
-                        <p:inputText id="legajo" value="#{alumnosController.selected.legajo}" title="#{bundle.CreateAlumnosTitle_legajo}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_legajo}"/>
+                        <p:inputText id="legajo" value="#{alumnoBean.selected.legajo}" title="#{bundle.CreateAlumnosTitle_legajo}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_legajo}"/>
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_dni}" for="dni" />
-                        <p:inputText id="dni" value="#{alumnosController.selected.dni}" title="#{bundle.CreateAlumnosTitle_dni}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_dni}"/>
+                        <p:inputText id="dni" value="#{alumnoBean.selected.dni}" title="#{bundle.CreateAlumnosTitle_dni}" required="true" requiredMessage="#{bundle.CreateAlumnosRequiredMessage_dni}"/>
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_fechaNacimiento}" for="fechaNacimiento" />
-                        <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy" value="#{alumnosController.selected.fechaNacimiento}" title="#{bundle.EditAlumnosTitle_fechaNacimiento}" required="true" requiredMessage="#{bundle.EditAlumnosRequiredMessage_fechaNacimiento}" showOn="button"/>
+                        <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy" value="#{alumnoBean.selected.fechaNacimiento}" title="#{bundle.EditAlumnosTitle_fechaNacimiento}" required="true" requiredMessage="#{bundle.EditAlumnosRequiredMessage_fechaNacimiento}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_telefono1}" for="telefono1" />
-                        <p:inputText id="telefono1" value="#{alumnosController.selected.telefono1}" title="#{bundle.CreateAlumnosTitle_telefono1}" />
+                        <p:inputText id="telefono1" value="#{alumnoBean.selected.telefono1}" title="#{bundle.CreateAlumnosTitle_telefono1}" />
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_telefono2}" for="telefono2" />
-                        <p:inputText id="telefono2" value="#{alumnosController.selected.telefono2}" title="#{bundle.CreateAlumnosTitle_telefono2}" />
+                        <p:inputText id="telefono2" value="#{alumnoBean.selected.telefono2}" title="#{bundle.CreateAlumnosTitle_telefono2}" />
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_domicilio}" for="domicilio" />
-                        <p:inputText id="domicilio" value="#{alumnosController.selected.domicilio}" title="#{bundle.CreateAlumnosTitle_domicilio}" />
+                        <p:inputText id="domicilio" value="#{alumnoBean.selected.domicilio}" title="#{bundle.CreateAlumnosTitle_domicilio}" />
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_localidad}" for="localidad" />
-                        <p:inputText id="localidad" value="#{alumnosController.selected.localidad}" title="#{bundle.CreateAlumnosTitle_localidad}" />
+                        <p:inputText id="localidad" value="#{alumnoBean.selected.localidad}" title="#{bundle.CreateAlumnosTitle_localidad}" />
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_procedencia}" for="procedencia" />
-                        <p:inputText id="procedencia" value="#{alumnosController.selected.procedencia}" title="#{bundle.CreateAlumnosTitle_procedencia}" />
+                        <p:inputText id="procedencia" value="#{alumnoBean.selected.procedencia}" title="#{bundle.CreateAlumnosTitle_procedencia}" />
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_observaciones}" for="observaciones" />
-                        <p:inputText id="observaciones" value="#{alumnosController.selected.observaciones}" title="#{bundle.CreateAlumnosTitle_observaciones}" />
+                        <p:inputText id="observaciones" value="#{alumnoBean.selected.observaciones}" title="#{bundle.CreateAlumnosTitle_observaciones}" />
                         <p:outputLabel value="#{bundle.CreateAlumnosLabel_cursosId}" for="cursosId" />
-                        <p:selectOneMenu id="cursosId" value="#{alumnosController.selected.cursosId}" required="true" requiredMessage="#{bundle.EditAlumnosRequiredMessage_cursosId}">
-                            <f:selectItems value="#{cursosController.itemsAvailableSelectOne}"
+                        <p:selectOneMenu id="cursosId" value="#{alumnoBean.selected.cursosId}" required="true" requiredMessage="#{bundle.EditAlumnosRequiredMessage_cursosId}">
+                            <f:selectItems value="#{cursoBean.itemsAvailableSelectOne}"
                                            var="cursosIdItem"
                                            itemValue="#{cursosIdItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{alumnosController.create}" value="#{bundle.Save}" update="display,:AlumnosListForm:datalist,:growl" oncomplete="handleSubmit(args,'AlumnosCreateDialog');"/>
+                    <p:commandButton actionListener="#{alumnoBean.create}" value="#{bundle.Save}" update="display,:AlumnosListForm:datalist,:growl" oncomplete="handleSubmit(args,'AlumnosCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="AlumnosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

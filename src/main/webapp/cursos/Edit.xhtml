@@ -10,9 +10,7 @@
         <p:dialog id="CursosEditDlg" widgetVar="CursosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCursosTitle}">
             <h:form id="CursosEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{cursoBean.selected != null}">
-                        <p:outputLabel value="#{bundle.EditCursosLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{cursoBean.selected.id}" title="#{bundle.EditCursosTitle_id}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_id}"/>
+                    <p:panelGrid columns="2" rendered="#{cursoBean.selected != null}">                      
                         <p:outputLabel value="#{bundle.EditCursosLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{cursoBean.selected.nombre}" title="#{bundle.EditCursosTitle_nombre}" required="true" requiredMessage="#{bundle.EditCursosRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditCursosLabel_turno}" for="turno" />

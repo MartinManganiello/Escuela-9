@@ -11,35 +11,35 @@
         <p:dialog id="AlumnosViewDlg" widgetVar="AlumnosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAlumnosTitle}">
             <h:form id="AlumnosViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{alumnosController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{alumnoBean.selected != null}">
                         <h:outputText value="#{bundle.ViewAlumnosLabel_id}"/>
-                        <h:outputText value="#{alumnosController.selected.id}" title="#{bundle.ViewAlumnosTitle_id}"/>
+                        <h:outputText value="#{alumnoBean.selected.id}" title="#{bundle.ViewAlumnosTitle_id}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_nombre}"/>
-                        <h:outputText value="#{alumnosController.selected.nombre}" title="#{bundle.ViewAlumnosTitle_nombre}"/>
+                        <h:outputText value="#{alumnoBean.selected.nombre}" title="#{bundle.ViewAlumnosTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_apellido}"/>
-                        <h:outputText value="#{alumnosController.selected.apellido}" title="#{bundle.ViewAlumnosTitle_apellido}"/>
+                        <h:outputText value="#{alumnoBean.selected.apellido}" title="#{bundle.ViewAlumnosTitle_apellido}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_legajo}"/>
-                        <h:outputText value="#{alumnosController.selected.legajo}" title="#{bundle.ViewAlumnosTitle_legajo}"/>
+                        <h:outputText value="#{alumnoBean.selected.legajo}" title="#{bundle.ViewAlumnosTitle_legajo}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_dni}"/>
-                        <h:outputText value="#{alumnosController.selected.dni}" title="#{bundle.ViewAlumnosTitle_dni}"/>
+                        <h:outputText value="#{alumnoBean.selected.dni}" title="#{bundle.ViewAlumnosTitle_dni}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_fechaNacimiento}"/>
-                        <h:outputText value="#{alumnosController.selected.fechaNacimiento}" title="#{bundle.ViewAlumnosTitle_fechaNacimiento}">
+                        <h:outputText value="#{alumnoBean.selected.fechaNacimiento}" title="#{bundle.ViewAlumnosTitle_fechaNacimiento}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_telefono1}"/>
-                        <h:outputText value="#{alumnosController.selected.telefono1}" title="#{bundle.ViewAlumnosTitle_telefono1}"/>
+                        <h:outputText value="#{alumnoBean.selected.telefono1}" title="#{bundle.ViewAlumnosTitle_telefono1}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_telefono2}"/>
-                        <h:outputText value="#{alumnosController.selected.telefono2}" title="#{bundle.ViewAlumnosTitle_telefono2}"/>
+                        <h:outputText value="#{alumnoBean.selected.telefono2}" title="#{bundle.ViewAlumnosTitle_telefono2}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_domicilio}"/>
-                        <h:outputText value="#{alumnosController.selected.domicilio}" title="#{bundle.ViewAlumnosTitle_domicilio}"/>
+                        <h:outputText value="#{alumnoBean.selected.domicilio}" title="#{bundle.ViewAlumnosTitle_domicilio}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_localidad}"/>
-                        <h:outputText value="#{alumnosController.selected.localidad}" title="#{bundle.ViewAlumnosTitle_localidad}"/>
+                        <h:outputText value="#{alumnoBean.selected.localidad}" title="#{bundle.ViewAlumnosTitle_localidad}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_procedencia}"/>
-                        <h:outputText value="#{alumnosController.selected.procedencia}" title="#{bundle.ViewAlumnosTitle_procedencia}"/>
+                        <h:outputText value="#{alumnoBean.selected.procedencia}" title="#{bundle.ViewAlumnosTitle_procedencia}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_observaciones}"/>
-                        <h:outputText value="#{alumnosController.selected.observaciones}" title="#{bundle.ViewAlumnosTitle_observaciones}"/>
+                        <h:outputText value="#{alumnoBean.selected.observaciones}" title="#{bundle.ViewAlumnosTitle_observaciones}"/>
                         <h:outputText value="#{bundle.ViewAlumnosLabel_cursosId}"/>
-                        <h:outputText value="#{alumnosController.selected.cursosId}" title="#{bundle.ViewAlumnosTitle_cursosId}"/>
+                        <h:outputText value="#{alumnoBean.selected.cursosId.nombre}" title="#{bundle.ViewAlumnosTitle_cursosId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="AlumnosViewDialog.hide()"/>
                 </h:panelGroup>
