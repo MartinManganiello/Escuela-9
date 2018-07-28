@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
@@ -11,13 +10,11 @@
         <p:dialog id="MateriasCreateDlg" widgetVar="MateriasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMateriasTitle}">
             <h:form id="MateriasCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{materiasController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMateriasLabel_idmaterias}" for="idmaterias" />
-                        <p:inputText id="idmaterias" value="#{materiasController.selected.idmaterias}" title="#{bundle.CreateMateriasTitle_idmaterias}" required="true" requiredMessage="#{bundle.CreateMateriasRequiredMessage_idmaterias}"/>
+                    <p:panelGrid columns="2" rendered="#{materiaBean.selected != null}">                     
                         <p:outputLabel value="#{bundle.CreateMateriasLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{materiasController.selected.nombre}" title="#{bundle.CreateMateriasTitle_nombre}" required="true" requiredMessage="#{bundle.CreateMateriasRequiredMessage_nombre}"/>
+                        <p:inputText id="nombre" value="#{materiaBean.selected.nombre}" title="#{bundle.CreateMateriasTitle_nombre}" required="true" requiredMessage="#{bundle.CreateMateriasRequiredMessage_nombre}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{materiasController.create}" value="#{bundle.Save}" update="display,:MateriasListForm:datalist,:growl" oncomplete="handleSubmit(args,'MateriasCreateDialog');"/>
+                    <p:commandButton actionListener="#{materiaBean.create}" value="#{bundle.Save}" update="display,:MateriasListForm:datalist,:growl" oncomplete="handleSubmit(args,'MateriasCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="MateriasCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

@@ -1,7 +1,7 @@
 package ar.edu.eest9.service.alumno;
 
 import ar.edu.eest9.domain.Alumnos;
-import ar.edu.eest9.repository.alumno.AlumnoDao;
+import ar.edu.eest9.repository.alumno.impl.AlumnoDao;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

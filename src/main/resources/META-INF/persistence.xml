@@ -2,14 +2,14 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="JPAPU" transaction-type="JTA">
     <jta-data-source>jdbc/escuela9</jta-data-source>
-    <class>ar.edu.eest9.entities.Alumnos</class>
-    <class>ar.edu.eest9.entities.Autorizados</class>
-    <class>ar.edu.eest9.entities.Cursos</class>
-    <class>ar.edu.eest9.entities.Docentes</class>
-    <class>ar.edu.eest9.entities.Documentaciones</class>
-    <class>ar.edu.eest9.entities.Materias</class>
-    <class>ar.edu.eest9.entities.Padres</class>
+    <class>ar.edu.eest9.domain.Alumnos</class>
+    <class>ar.edu.eest9.domain.Autorizados</class>
+    <class>ar.edu.eest9.domain.Cursos</class>
+    <class>ar.edu.eest9.domain.Docentes</class>
+    <class>ar.edu.eest9.domain.Documentaciones</class>
+    <class>ar.edu.eest9.domain.HorarioDocente</class>
     <class>ar.edu.eest9.domain.Materias</class>
+    <class>ar.edu.eest9.domain.Padres</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

@@ -16,8 +16,8 @@
         <ui:define name="body">
             <h:form id="MateriasListForm">
                 <p:panel header="#{bundle.ListMateriasTitle}">
-                    <p:dataTable id="datalist" value="#{materiasController.items}" var="item"
-                                 selectionMode="single" selection="#{materiasController.selected}"
+                    <p:dataTable id="datalist" value="#{materiaBean.items}" var="item"
+                                 selectionMode="single" selection="#{materiaBean.selected}"
                                  paginator="true"
                                  rowKey="#{item.idmaterias}"
                                  rows="10"
@@ -40,10 +40,10 @@
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{materiasController.prepareCreate}" update=":MateriasCreateForm" oncomplete="PF('MateriasCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MateriasViewForm" oncomplete="PF('MateriasViewDialog').show()" disabled="#{empty materiasController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MateriasEditForm" oncomplete="PF('MateriasEditDialog').show()" disabled="#{empty materiasController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{materiasController.destroy}" update=":growl,datalist" disabled="#{empty materiasController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{materiaBean.prepareCreate}" update=":MateriasCreateForm" oncomplete="PF('MateriasCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MateriasViewForm" oncomplete="PF('MateriasViewDialog').show()" disabled="#{empty materiaBean.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MateriasEditForm" oncomplete="PF('MateriasEditDialog').show()" disabled="#{empty materiaBean.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{materiaBean.destroy}" update=":growl,datalist" disabled="#{empty materiaBean.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

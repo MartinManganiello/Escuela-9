@@ -1,4 +1,4 @@
-package ar.edu.eest9.repository.alumno;
+package ar.edu.eest9.repository.alumno.impl;
 
 import ar.edu.eest9.domain.Alumnos;
 import java.util.List;

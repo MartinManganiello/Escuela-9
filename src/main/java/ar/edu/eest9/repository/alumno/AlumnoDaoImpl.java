@@ -2,6 +2,7 @@ package ar.edu.eest9.repository.alumno;
 
 import ar.edu.eest9.domain.Alumnos;
 import ar.edu.eest9.repository.GenericR;
+import ar.edu.eest9.repository.alumno.impl.AlumnoDao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
