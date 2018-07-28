@@ -16,8 +16,8 @@
         <ui:define name="body">
             <h:form id="AutorizadosListForm">
                 <p:panel header="#{bundle.ListAutorizadosTitle}">
-                    <p:dataTable id="datalist" value="#{autorizadosController.items}" var="item"
-                                 selectionMode="single" selection="#{autorizadosController.selected}"
+                    <p:dataTable id="datalist" value="#{autorizadoBean.items}" var="item"
+                                 selectionMode="single" selection="#{autorizadoBean.selected}"
                                  paginator="true"
                                  rowKey="#{item.id}"
                                  rows="10"
@@ -52,10 +52,10 @@
                             <h:outputText value="#{item.dni}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{autorizadosController.prepareCreate}" update=":AutorizadosCreateForm" oncomplete="PF('AutorizadosCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AutorizadosViewForm" oncomplete="PF('AutorizadosViewDialog').show()" disabled="#{empty autorizadosController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AutorizadosEditForm" oncomplete="PF('AutorizadosEditDialog').show()" disabled="#{empty autorizadosController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{autorizadosController.destroy}" update=":growl,datalist" disabled="#{empty autorizadosController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{autorizadoBean.prepareCreate}" update=":AutorizadosCreateForm" oncomplete="PF('AutorizadosCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AutorizadosViewForm" oncomplete="PF('AutorizadosViewDialog').show()" disabled="#{empty autorizadoBean.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AutorizadosEditForm" oncomplete="PF('AutorizadosEditDialog').show()" disabled="#{empty autorizadoBean.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{autorizadoBean.destroy}" update=":growl,datalist" disabled="#{empty autorizadoBean.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

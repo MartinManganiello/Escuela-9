@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
@@ -11,17 +10,15 @@
         <p:dialog id="AutorizadosEditDlg" widgetVar="AutorizadosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAutorizadosTitle}">
             <h:form id="AutorizadosEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{autorizadosController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditAutorizadosLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{autorizadosController.selected.id}" title="#{bundle.EditAutorizadosTitle_id}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_id}"/>
+                    <p:panelGrid columns="2" rendered="#{autorizadoBean.selected != null}">                   
                         <p:outputLabel value="#{bundle.EditAutorizadosLabel_nombreApellido}" for="nombreApellido" />
-                        <p:inputText id="nombreApellido" value="#{autorizadosController.selected.nombreApellido}" title="#{bundle.EditAutorizadosTitle_nombreApellido}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_nombreApellido}"/>
+                        <p:inputText id="nombreApellido" value="#{autorizadoBean.selected.nombreApellido}" title="#{bundle.EditAutorizadosTitle_nombreApellido}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_nombreApellido}"/>
                         <p:outputLabel value="#{bundle.EditAutorizadosLabel_parentesco}" for="parentesco" />
-                        <p:inputText id="parentesco" value="#{autorizadosController.selected.parentesco}" title="#{bundle.EditAutorizadosTitle_parentesco}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_parentesco}"/>
+                        <p:inputText id="parentesco" value="#{autorizadoBean.selected.parentesco}" title="#{bundle.EditAutorizadosTitle_parentesco}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_parentesco}"/>
                         <p:outputLabel value="#{bundle.EditAutorizadosLabel_dni}" for="dni" />
-                        <p:inputText id="dni" value="#{autorizadosController.selected.dni}" title="#{bundle.EditAutorizadosTitle_dni}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_dni}"/>
+                        <p:inputText id="dni" value="#{autorizadoBean.selected.dni}" title="#{bundle.EditAutorizadosTitle_dni}" required="true" requiredMessage="#{bundle.EditAutorizadosRequiredMessage_dni}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{autorizadosController.update}" value="#{bundle.Save}" update="display,:AutorizadosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AutorizadosEditDialog');"/>
+                    <p:commandButton actionListener="#{autorizadoBean.update}" value="#{bundle.Save}" update="display,:AutorizadosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AutorizadosEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="AutorizadosEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
